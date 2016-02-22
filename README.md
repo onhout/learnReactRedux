@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ReduxSimpleStarter
 
 ###Getting Started###
@@ -21,3 +22,6 @@ Click [here](https://github.com/StephenGrider/ReactStarter/releases) then downlo
 	> npm install
 	> npm start
 ```
+=======
+# learnReactRedux
+>>>>>>> b689016d7ce361bb6434e4eb54f7d39baa8d6c27
