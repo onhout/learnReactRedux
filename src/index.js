@@ -1,14 +1,12 @@
 /**
  * Created by pl on 2/22/16.
  */
-import React from 'react';
-import ReactDOM from 'react-dom';
-import SearchBar from './components/search_bar';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import SearchBar from './components/search_bar'
 
 const App = () => {
-    return <div>
-    <SearchBar />
-    </div>;
+    return <div><SearchBar /></div>;
 };
 
 ReactDOM.render(<App />, document.querySelector('.container'));
