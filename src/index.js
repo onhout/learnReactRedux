@@ -1,6 +1,7 @@
 /**
  * Created by pl on 2/22/16.
  */
+import _ from 'lodash'
 import React , {Component} from 'react'
 import ReactDOM from 'react-dom'
 import YTSearch from 'youtube-api-search'
@@ -20,19 +21,24 @@ class App extends Component {
 			selectedVideo: null 
 		};
 
-		YTSearch({key: API_KEY, term: 'cats'}, (videos) => {
-			this.setState({
-				videos: videos,
-				selectedVideo: videos[0]
-			});
-			//this.setState({videos:videos});
-			//syntactic sugar
-		});
+		this.videoSearch('starbucks')
 	}
+
+    videoSearch(term){
+        YTSearch({key: API_KEY, term: term}, (videos) => {
+            this.setState({
+                videos: videos,
+                selectedVideo: videos[0]
+            });
+        });
+    }
+
 	render(){
+        const videoSearch = _.debounce((term)=>{this.videoSearch(term)}, 300);
+
 		return (
 			<div>
-				<SearchBar />
+				<SearchBar onSearchTermChange = {videoSearch}/>
 				<VideoDetail video={this.state.selectedVideo} />
 				<VideoList 
 					onVideoSelect={selectedVideo => this.setState({selectedVideo})}
